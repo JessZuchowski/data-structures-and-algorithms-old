@@ -15,7 +15,9 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
+  for (var i = 0; i < str.length + 1; i++) {
+    result.push(str.slice(i));
+  }
   return result;
 };
 
@@ -28,7 +30,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+  return arr.split('');
 };
 
 
@@ -75,7 +77,11 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach((ingredient) => {
+    var noAmount = ingredient.slice(ingredient.indexOf(' ') + 1);
+    var noUnit = noAmount.slice(noAmount.indexOf(' ') + 1);
+    result.push(noUnit);
+  })
   return result;
 };
 
@@ -89,7 +95,9 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach((ingredient) => {
+    result.push(ingredient.split(' ').slice(2).join(' '));
+  });
   return result;
 };
 
@@ -105,8 +113,11 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
-  return result;
+  recipe.steps.forEach((step) => {
+    var onlyVerb = step.slice(0,1);
+    result.push(onlyVerb);
+  })
+  return recipe.split('');
 };
 
 /* ------------------------------------------------------------------------------------------------
